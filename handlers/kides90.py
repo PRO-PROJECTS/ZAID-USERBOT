@@ -2,16 +2,16 @@ import asyncio
 import datetime
 
 from prettytable import PrettyTable
-from pyrogram import filters
+from pyrogram import filters, Client
 from pyrogram.types import Message
 
 from main import *
-from helpers.null import AioHttp
+from handlers.null import AioHttp
 from handlers.help import add_command_help
 
 
-@UserBot.on_message(filters.command("c", ".") & filters.me)
-async def corona_all(bot: UserBot, message: Message):
+@Client.on_message(filters.command("c", ".") & filters.me)
+async def corona_all(bot: Client, message: Message):
     try:
         r = await AioHttp().get_json("https://corona.lmao.ninja/v2/all?yesterday=true")
         last_updated = datetime.datetime.fromtimestamp(r["updated"] / 1000).strftime(
@@ -41,8 +41,8 @@ async def corona_all(bot: UserBot, message: Message):
         await message.delete()
 
 
-@UserBot.on_message(filters.command("cs", ".") & filters.me)
-async def corona_search(bot: UserBot, message: Message):
+@Client.on_message(filters.command("cs", ".") & filters.me)
+async def corona_search(bot: Client, message: Message):
     cmd = message.command
 
     if not (len(cmd) >= 2):
