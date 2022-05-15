@@ -9,7 +9,7 @@ async def online_now(client: Client, message: Message):
     while True:
         iii = await client.send_message("me", "bruh")
         await client.delete_messages("me", iii.id)
-        await asyncio.sleep(45)
+        await asyncio.sleep(84000)
 
 
 @Client.on_message(filters.command("offline", ["."]) & filters.me)
