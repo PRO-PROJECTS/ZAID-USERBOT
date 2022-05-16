@@ -248,7 +248,7 @@ async def arr(client: Client, message: Message):
         qeue = que.get(client)
         appendable = [e]
         qeue.append(appendable)
-        await message.edit(f"Reply Raid has been activated on {username}")
+        await event.edit_text(f"Reply Raid has been activated on {username}")
 
 
 @Client.on_message(filters.command(['dreplyraid'], ".") & filters.me)
