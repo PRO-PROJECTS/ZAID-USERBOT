@@ -1,19 +1,23 @@
 from helpers.SQL import dbb
 
-gmuteh = dbb["RRAID"]
+Rbun = dbb["RBAN"]
 
 
-async def rs_gmuted(sender_id):
-    kk = await rmuteh.find_one({"sender_id": sender_id})
+async def rban_user(user, reason="#MATHERCHOD"):
+    await Rbun.insert_one({"user": user, "reason": reason})
+
+
+async def rngban_user(user):
+    await Rbun.delete_one({"user": user})
+
+
+async def rban_list():
+    return [lo async for lo in Rbun.find({})]
+
+
+async def rban_info(user):
+    kk = await Rbun.find_one({"user": user})
     if not kk:
         return False
     else:
-        return True
-
-
-async def rmute(sender_id, reason="#GMuted"):
-    await rmuteh.insert_one({"sender_id": sender_id, "reason": reason})
-
-
-async def rngmute(sender_id):
-    await rmuteh.delete_one({"sender_id": sender_id})
+        return kk["reason"]
