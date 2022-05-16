@@ -295,11 +295,6 @@ async def watch(client: Client, message: Message):
     if not message.from_user:
         return
     user = message.from_user.id
-    if await is_gmuted(user):
-        try:
-            await message.delete()
-        except:
-            pass
     if await gban_info(user):
         if message.chat.type != "supergroup":
             pass
