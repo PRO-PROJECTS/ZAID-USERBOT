@@ -231,70 +231,70 @@ def get_text(message: Message) -> [None, str]:
 
 @Client.on_message(filters.me & filters.command(["replyraid", "rraid"], ["."]))
 async def replyramd(client: Client, message: Message):
-    gbun = await message.edit_text("`Processing..`")
+    Zaid = await message.edit_text("`Processing..`")
     text_ = get_text(message)
     user, reason = get_user(message, text_)
     failed = 0
     if not user:
-        await gbun.edit("`Reply To User Or Mention To Activate Replyraid `")
+        await Zaid.edit("`Reply To User Or Mention To Activate Replyraid `")
         return
     try:
         userz = await client.get_users(user)
     except:
-        await gbun.edit(f"`404 : User Doesn't Exists In This Chat !`")
+        await Zaid.edit(f"`404 : User Doesn't Exists In This Chat !`")
         return
     if not reason:
         reason = "Private Reason!"
     mee= await client.get_me()
     if userz.id == mee.id:
-        await gbun.edit("`Jaa Na Lawde Kahe Dimag Kha rha? Khudpe Raid kyu laga rha?`")
+        await Zaid.edit("`Jaa Na Lawde Kahe Dimag Kha rha? Khudpe Raid kyu laga rha?`")
         return
     if await zaidub_info(userz.id):
-        await gbun.edit("`Who So Noob? Reply Raid Already Activated on that User:/`")
+        await Zaid.edit("`Who So Noob? Reply Raid Already Activated on that User:/`")
         return
-    await gbun.edit("`Please, Wait Fectching Using Details!`")
+    await Zaid.edit("`Please, Wait Fectching Using Details!`")
     chat_dict = await iter_chats(client)
     chat_len = len(chat_dict)
     if not chat_dict:
-        gbun.edit("`You Have No Chats! So Sad`")
+        Zaid.edit("`You Have No Chats! So Sad`")
         return
-    await gbun.edit("`Activating Replyraid....!`")
+    await Zaid.edit("`Activating Replyraid....!`")
     await rzaid(userz.id, reason)
     gbanned = f"Reply Raid has Been Activated On {userz.first_name}"
-    await gbun.edit(gbanned)
+    await Zaid.edit(gbanned)
     
 
 @Client.on_message(filters.me & filters.command(["dreplyraid", "drraid"], ["."]))
 async def dreplyramd(client: Client, message: Message):
-    ungbun= await message.edit_text("`Processing..`")
+    Zaid = await message.edit_text("`Processing..`")
     text_ = get_text(message)
     user = get_user(message, text_)[0]
     failed = 0
     if not user:
-        await ungbun.edit("`Reply To User Or Mention To Deactivate Replyraid`")
+        await Zaid.edit("`Reply To User Or Mention To Deactivate Replyraid`")
         return
     try:
         userz = await client.get_users(user)
     except:
-        await ungbun.edit(f"`404 : User Doesn't Exists!`")
+        await Zaid.edit(f"`404 : User Doesn't Exists!`")
         return
     mee= await client.get_me()
     if userz.id == mee.id:
-        await ungbun.edit("`Soja Lomde`")
+        await Zaid.edit("`Soja Lomde`")
         return
     if not await zaidub_info(userz.id):
-        await ungbun.edit("`When I Replyraid Activated? On That User?:/`")
+        await Zaid.edit("`When I Replyraid Activated? On That User?:/`")
         return
-    await ungbun.edit("`Please, Wait Fectching User details!`")
+    await Zaid.edit("`Please, Wait Fectching User details!`")
     chat_dict = await iter_chats(client)
     chat_len = len(chat_dict)
     if not chat_dict:
-        ungbun.edit("`You Have No Chats! So Sad`")
+        Zaid.edit("`You Have No Chats! So Sad`")
         return
-    await ungbun.edit("`De-Activating Replyraid Raid....!`")
+    await Zaid.edit("`De-Activating Replyraid Raid....!`")
     await runzaid(userz.id)
     ungbanned = f"**De-activated Replyraid Raid [{userz.first_name}](tg://user?id={userz.id})"
-    await ungbun.edit(ungbanned)
+    await Zaid.edit(ungbanned)
     
 
 
