@@ -1,3 +1,13 @@
+""" Dear Kangers Don't Kang This Code.
+This Code Maded By Meh First On Telegram
+I have Spent My Lots of Time on That to make
+It successfull.
+So Uh Are Still Thinking To kang?
+Don't kang Without Creadits
+@ Zaid Userbot and @Timesisnotwaiting
+"""
+
+
 from pyrogram import filters
 from traceback import format_exc
 from typing import Tuple
