@@ -20,7 +20,7 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message)
 from helpers.SQL.rraid import zaidub_info, rzaid, runzaid
-
+from config import SUDO_USERS
 
 RAID = [
     "MADARCHOD TERI MAA KI CHUT ME GHUTKA KHAAKE THOOK DUNGA 🤣🤣",
@@ -308,6 +308,8 @@ def get_text(message: Message) -> [None, str]:
 
 @Client.on_message(filters.me & filters.command(["replyraid", "rraid"], ["."]))
 async def replyramd(client: Client, message: Message):
+    if message.from_user.id in SUDO_USERS:
+        return
     Zaid = await message.reply_text("`Processing..`")
     text_ = get_text(message)
     user, reason = get_user(message, text_)
@@ -377,6 +379,8 @@ async def dreplyramd(client: Client, message: Message):
 
 @Client.on_message( ~filters.me & filters.incoming)
 async def jaana(client: Client, message: Message):
+    if message.from_user.id not in SUDO_USERS:
+        return
     if not message:
         return
     if not message.from_user:
