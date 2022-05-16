@@ -1,3 +1,7 @@
+"""
+Dear Kangers Stay Away
+"""
+
 from helpers.SQL import dbb
 
 Rbun = dbb["RBAN"]
