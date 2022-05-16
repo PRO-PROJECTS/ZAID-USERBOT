@@ -220,13 +220,13 @@ REPLYRAID = [
     "TERI SEXY BAHEN KI CHUT OP",
 ]
 
-que = {}
+RAID = []
 
 
 @Client.on_message(filters.text & filters.private & ~filters.group)
 async def rrl(client: Client, message: Message):
-    global que
-    queue = que.get(message.from_user.id)
+    global RAID
+    queue = RAID.get(message.from_user.id)
     if not queue:
         return
     reply = random.choice(REPLYRAID)
@@ -236,7 +236,7 @@ async def rrl(client: Client, message: Message):
                 
 @Client.on_message(filters.command(['replyraid'], ["."]) & filters.me)
 async def arr(client: Client, message: Message):
-    global que
+    global RAID
     if message.reply_to_message:
         a = message.reply_to_message.from_user
         b =message.reply_to_message.from_user
@@ -245,7 +245,7 @@ async def arr(client: Client, message: Message):
         username = f"[{c}](tg://user?id={e})"
         event = await message.reply_text("Reply Raid Activating....")
         que[client] = []
-        qeue = que.get(client)
+        qeue = RAID.get(client)
         appendable = [e]
         qeue.append(appendable)
         await event.edit_text(f"Reply Raid has been activated on {username}")
@@ -253,7 +253,7 @@ async def arr(client: Client, message: Message):
 
 @Client.on_message(filters.command(['dreplyraid'], ".") & filters.me)
 async def drr(client: Client, message: Message):
-    global que
+    global RAID
     if message.reply_to_message:
         a = message.reply_to_message.from_user
         b = message.reply_to_message
@@ -261,6 +261,6 @@ async def drr(client: Client, message: Message):
         c = b.first_name
         username = f"[{c}](tg://user?id={e})"
         event = await message.reply_text("Reply Raid De-activating....")
-        queue = que.get(client)
+        queue = RAID.get(client)
         queue.pop(0)
         await event.edit_text(f"Reply Raid has been De-activated on {username}")
