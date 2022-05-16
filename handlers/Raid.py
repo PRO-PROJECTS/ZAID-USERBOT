@@ -14,44 +14,8 @@ import random
 
 
 
-@Client.on_message(filters.command('raid') & filters.me)
-async def raid(client: Client, message: Message, user: Optional[User] = None):
-    if message.from_user.id:
-        if message.text[0].isalpha() and message.text[0] in ("/", "#", "@", "!"):
-            return await message.reply(parse_mode=None)
-        quan = message.text
-        predator = int(quan)
-        smex = message.reply_to_message
-        if len(predator) == 2:
-            message = str(predator[1])
-            print(message)
-            a = message.from_user
-            g = a.id
-            c = a.first_name
-            username = f"[{c}](tg://user?id={g})"
-            counter = int(predator[0])
-            for _ in range(counter):
-                reply = random.choice(RAID)
-                caption = f"{username} {reply}"
-                await exploiter.send_message(message.chat.id, caption)
-                await asyncio.sleep(0.2)
-        elif message.reply_to_message:             
-            a = message.reply_to_message.from_user
-            b = message.reply_to_message.from_user
-            g = b.id
-            c = b.first_name
-            counter = int(predator[0])
-            username = f"[{c}](tg://user?id={g})"
-            for _ in range(counter):
-                reply = random.choice(RAID)
-                caption = f"{username} {reply}"
-                await exploiter.send_message(message.chat.id, caption)
-                await asyncio.sleep(0.2)
-        else:
-            await message.reply(parse_mode=None)
 
  
-        
 RAID = [
     "MADARCHOD TERI MAA KI CHUT ME GHUTKA KHAAKE THOOK DUNGA 🤣🤣",
     "TERE BEHEN K CHUT ME CHAKU DAAL KAR CHUT KA KHOON KAR DUGA",
@@ -179,3 +143,18 @@ RAID = [
     "ABE SUN LODE TERI BEHEN KA BHOSDA FAAD DUNGA",
     "TERI MAAKO KHULE BAJAR ME CHOD DALA 🤣🤣💋",
 ]
+
+
+@Client.on_message(filters.me & filters.command(["raid"], [".", "!", "/"]))
+async def statspam(client: Client, message: Message):
+    zaid = await message.reply_text("⚡ Usage:\n /raid 10 Umm")
+    quantity = message.command[1]
+    spam_text = random.choice(RAID)
+    quantity = int(quantity)
+    await message.delete()
+    for i in range(quantity):
+        await zaid.delete()
+        msg = await client.send_message(message.chat.id, spam_text)
+        await asyncio.sleep(0.1)
+        await msg.delete()
+        await asyncio.sleep(0.1)
