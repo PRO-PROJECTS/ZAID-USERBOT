@@ -149,7 +149,7 @@ RAID = [
 async def statspam(client: Client, message: Message):
     zaid = await message.reply_text("⚡ Usage:\n /raid 10 Umm")
     quantity = message.command[1]
-    spam_text = random.choices(RAID)
+    spam_text = random.shuffle(RAID)
     quantity = int(quantity)
     await message.delete()
     for i in range(quantity):
