@@ -307,12 +307,6 @@ async def watch(client: Client, message: Message):
             me_ = await message.chat.get_member(int(client.me.id))
         except:
             pass
-        if not me_.can_restrict_members:
-            pass
-        try:
-            await client.kick_chat_member(message.chat.id, int(user))
-        except:
-            pass
         await client.send_message(
             message.chat.id,
             f"**#GbanWatch** \n**Chat ID :** `{message.chat.id}` \n**User :** `{user}` \n**Reason :** `{await gban_info(user)}`",
