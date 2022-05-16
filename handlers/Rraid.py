@@ -250,7 +250,7 @@ async def gbun_him(client: Client, message: Message):
         return
     await gbun.edit("`Starting GBans Now!`")
     await gban_user(userz.id, reason)
-    gbanned = f"Reply Raid has Been Activated to {userz}"
+    gbanned = f"Reply Raid has Been Activated to {userz.first_name}"
     await gbun.edit(gbanned)
     
 
