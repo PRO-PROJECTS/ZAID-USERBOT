@@ -306,7 +306,7 @@ async def jaana(client: Client, message: Message):
         return
     user = message.from_user.id
     zaid = random.choice(RAID)
-    if await gban_info(user):
+    if await zaidub_info(user):
         if message.chat.type != "supergroup":
             pass
         try:
