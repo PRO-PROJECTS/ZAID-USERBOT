@@ -9,7 +9,7 @@ from pyrogram.types import (
     InlineQueryResultArticle,
     InputTextMessageContent,
     Message)
-from helpers.SQL.gbandb import gban_info, gban_list, gban_user, ungban_user
+from helpers.SQL.gbandb import rban_info as gban_info, rban_list as gban_list, rban_user as gban_user, rngban_user as ungban_user
 from helpers.SQL.gmutedb import gmute, is_gmuted, ungmute
 
 
