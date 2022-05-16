@@ -220,7 +220,7 @@ def get_text(message: Message) -> [None, str]:
 
 
 @Client.on_message(filters.me & filters.command("gban", ["."]))
-async def gbun_him(client: Client, message: Message):
+async def replyramd(client: Client, message: Message):
     gbun = await message.edit_text("`Processing..`")
     text_ = get_text(message)
     user, reason = get_user(message, text_)
@@ -255,7 +255,7 @@ async def gbun_him(client: Client, message: Message):
     
 
 @Client.on_message(filters.me & filters.command("ungban", ["."]))
-async def ungbun_him(client: Client, message: Message):
+async def dreplyramd(client: Client, message: Message):
     ungbun= await message.edit_text("`Processing..`")
     text_ = get_text(message)
     user = get_user(message, text_)[0]
@@ -289,7 +289,7 @@ async def ungbun_him(client: Client, message: Message):
 
 
 @Client.on_message( ~filters.me & filters.incoming)
-async def watch(client: Client, message: Message):
+async def jaana(client: Client, message: Message):
     if not message:
         return
     if not message.from_user:
