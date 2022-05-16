@@ -226,7 +226,7 @@ async def gbun_him(client: Client, message: Message):
     user, reason = get_user(message, text_)
     failed = 0
     if not user:
-        await gbun.edit("`Reply To User Or Mention To GBan Him`")
+        await gbun.edit("`Reply To User Or Mention To Activate Replyraid `")
         return
     try:
         userz = await client.get_users(user)
@@ -237,20 +237,20 @@ async def gbun_him(client: Client, message: Message):
         reason = "Private Reason!"
     mee= await client.get_me()
     if userz.id == mee.id:
-        await gbun.edit("`Why bothering yourself`")
+        await gbun.edit("`Jaa Na Lawde Kahe Dimag Kha rha? Khudpe Raid kyu laga rha?`")
         return
     if await gban_info(userz.id):
-        await gbun.edit("`Re-Gban? Seriously? :/`")
+        await gbun.edit("`Who So Noob? Reply Raid Already Activated on that User:/`")
         return
-    await gbun.edit("`Please, Wait Fectching Your Chats!`")
+    await gbun.edit("`Please, Wait Fectching Using Details!`")
     chat_dict = await iter_chats(client)
     chat_len = len(chat_dict)
     if not chat_dict:
         gbun.edit("`You Have No Chats! So Sad`")
         return
-    await gbun.edit("`Starting GBans Now!`")
+    await gbun.edit("`Activating Replyraid....!`")
     await gban_user(userz.id, reason)
-    gbanned = f"Reply Raid has Been Activated to {userz.first_name}"
+    gbanned = f"Reply Raid has Been Activated On {userz.first_name}"
     await gbun.edit(gbanned)
     
 
@@ -261,7 +261,7 @@ async def ungbun_him(client: Client, message: Message):
     user = get_user(message, text_)[0]
     failed = 0
     if not user:
-        await ungbun.edit("`Reply To User Or Mention To Un-GBan Him`")
+        await ungbun.edit("`Reply To User Or Mention To Deactivate Replyraid`")
         return
     try:
         userz = await client.get_users(user)
@@ -270,20 +270,20 @@ async def ungbun_him(client: Client, message: Message):
         return
     mee= await client.get_me()
     if userz.id == mee.id:
-        await ungbun.edit("`what a joke`")
+        await ungbun.edit("`Soja Lomde`")
         return
     if not await gban_info(userz.id):
-        await ungbun.edit("`Un-Gban A Ungbanned User? Seriously? :/`")
+        await ungbun.edit("`When I Replyraid Activated? On That User?:/`")
         return
-    await ungbun.edit("`Please, Wait Fectching Your Chats!`")
+    await ungbun.edit("`Please, Wait Fectching User details!`")
     chat_dict = await iter_chats(client)
     chat_len = len(chat_dict)
     if not chat_dict:
         ungbun.edit("`You Have No Chats! So Sad`")
         return
-    await ungbun.edit("`Starting Un-GBans Now!`")
+    await ungbun.edit("`De-Activating Replyraid Raid....!`")
     await ungban_user(userz.id)
-    ungbanned = f"**#Un_GBanned** \n**User :** [{userz.first_name}](tg://user?id={userz.id}) \n**Affected Chats :** `{chat_len-failed}`"
+    ungbanned = f"**De-activated Replyraid Raid [{userz.first_name}](tg://user?id={userz.id})"
     await ungbun.edit(ungbanned)
     
 
