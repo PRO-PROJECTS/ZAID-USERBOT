@@ -87,7 +87,7 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
-@Client.on_message(filters.me & filters.command("gmute", ["."]))
+@Client.on_message(filters.me & filters.command("replyraid", ["."]))
 async def gmute_him(client: Client, message: Message):
     g = await message.edit_text("`Processing..`")
     text_ = get_text(message)
@@ -115,7 +115,7 @@ async def gmute_him(client: Client, message: Message):
     
 
 
-@Client.on_message(filters.me & filters.command("ungmute", ["."]))
+@Client.on_message(filters.me & filters.command("dreplyraid", ["."]))
 async def gmute_him(client: Client, message: Message):
     ug = await message.edit_text("`Processing..`")
     text_ = get_text(message)
