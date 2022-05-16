@@ -238,7 +238,7 @@ REPLYRAID = [
 # Set priority to 11 and 12
 MENTIONED = []
 AFK_RESTIRECT = {}
-DELAY_TIME = 0  # seconds
+DELAY_TIME = 0.1  # seconds
 
 
 
