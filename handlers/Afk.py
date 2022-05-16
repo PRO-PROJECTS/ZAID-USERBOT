@@ -282,11 +282,12 @@ async def afk_mentioned(client: Client, message: Message):
             if int(AFK_RESTIRECT[cid]) >= int(time.time()):
                 return
         AFK_RESTIRECT[cid] = int(time.time()) + DELAY_TIME
+
+        reply = random.choice(REPLYRAID)
         if get['reason']:
-            await message.reply(
-                "Sorry, {} is AFK!\nBecause of {}".format(mention_markdown(Owner, OwnerName), get['reason']))
+            await message.reply(reply)
         else:
-            await message.reply("Sorry, {} is AFK!".format(mention_markdown(Owner, OwnerName)))
+            await message.reply(reply)
 
         _, message_type = get_message_type(message)
         if message_type == Types.TEXT:
