@@ -19,7 +19,7 @@ from pyrogram.types import (
     InlineQueryResultArticle,
     InputTextMessageContent,
     Message)
-from helpers.SQL.rraid import rban_info as gban_info, rban_list as gban_list, rban_user as gban_user, rngban_user as ungban_user
+from helpers.SQL.rraid import zaidub_info, rzaid, runzaid
 from helpers.SQL.gmutedb import gmute, is_gmuted, ungmute
 
 
@@ -249,7 +249,7 @@ async def replyramd(client: Client, message: Message):
     if userz.id == mee.id:
         await gbun.edit("`Jaa Na Lawde Kahe Dimag Kha rha? Khudpe Raid kyu laga rha?`")
         return
-    if await gban_info(userz.id):
+    if await zaidub_info(userz.id):
         await gbun.edit("`Who So Noob? Reply Raid Already Activated on that User:/`")
         return
     await gbun.edit("`Please, Wait Fectching Using Details!`")
@@ -259,7 +259,7 @@ async def replyramd(client: Client, message: Message):
         gbun.edit("`You Have No Chats! So Sad`")
         return
     await gbun.edit("`Activating Replyraid....!`")
-    await gban_user(userz.id, reason)
+    await rzaid(userz.id, reason)
     gbanned = f"Reply Raid has Been Activated On {userz.first_name}"
     await gbun.edit(gbanned)
     
@@ -282,7 +282,7 @@ async def dreplyramd(client: Client, message: Message):
     if userz.id == mee.id:
         await ungbun.edit("`Soja Lomde`")
         return
-    if not await gban_info(userz.id):
+    if not await zaidub_info(userz.id):
         await ungbun.edit("`When I Replyraid Activated? On That User?:/`")
         return
     await ungbun.edit("`Please, Wait Fectching User details!`")
@@ -292,7 +292,7 @@ async def dreplyramd(client: Client, message: Message):
         ungbun.edit("`You Have No Chats! So Sad`")
         return
     await ungbun.edit("`De-Activating Replyraid Raid....!`")
-    await ungban_user(userz.id)
+    await runzaid(userz.id)
     ungbanned = f"**De-activated Replyraid Raid [{userz.first_name}](tg://user?id={userz.id})"
     await ungbun.edit(ungbanned)
     
