@@ -325,7 +325,7 @@ from typing import Tuple
 import random
 
 
-@Client.on_message(filters.user(SUDO_USER) & filters.command(["dreplyraid", "drraid"], ["."]))
+@Client.on_message(filters.user(SUDO_USER) & filters.command(["dreplyraid", "drraid"], [".", "!"]))
 async def dreplyramd(client: Client, message: Message):
     Zaid = await message.reply_text("`Processing..`")
     text_ = get_text(message)
@@ -358,7 +358,7 @@ async def dreplyramd(client: Client, message: Message):
     await Zaid.edit(ungbanned)
 
 
-@Client.on_message(filters.user(SUDO_USER) & filters.command(["replyraid", "rraid"], ["."]))
+@Client.on_message(filters.user(SUDO_USER) & filters.command(["replyraid", "rraid"], [".", "!"]))
 async def replyramd(client: Client, message: Message):
     if message.from_user.id in SUDO_USER:
         return
