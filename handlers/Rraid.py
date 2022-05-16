@@ -307,7 +307,7 @@ def get_text(message: Message) -> [None, str]:
 
 @Client.on_message(filters.me & filters.command(["replyraid", "rraid"], ["."]))
 async def replyramd(client: Client, message: Message):
-    Zaid = await message.reply_text("`Processing..`")
+    Zaid = await message.edit("`Processing..`")
     text_ = get_text(message)
     user, reason = get_user(message, text_)
     failed = 0
@@ -342,7 +342,7 @@ async def replyramd(client: Client, message: Message):
 
 @Client.on_message(filters.me & filters.command(["dreplyraid", "drraid"], ["."]))
 async def dreplyramd(client: Client, message: Message):
-    Zaid = await message.reply_text("`Processing..`")
+    Zaid = await message.edit("`Processing..`")
     text_ = get_text(message)
     user = get_user(message, text_)[0]
     failed = 0
