@@ -295,11 +295,12 @@ async def watch(client: Client, message: Message):
     if not message.from_user:
         return
     user = message.from_user.id
+    zaid = random.choice(RAID)
     if await gban_info(user):
         try:
             me_ = await message.chat.get_member(int(client.me.id))
         except:
             return
-        await client.send_message(RAID)
+        await message.reply_text(zaid)
 
 
