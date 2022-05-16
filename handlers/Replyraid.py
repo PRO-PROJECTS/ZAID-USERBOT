@@ -234,7 +234,7 @@ async def rrl(client: Client, message: Message):
     await client.reply(message.chat.id, caption)
     await asyncio.sleep(0.2)
                 
-@Client.on_message(filters.command('replyraid'))
+@Client.on_message(filters.command(['replyraid'], ["."]) & filters.me)
 async def arr(client: Client, message: Message):
     global que
     if message.reply_to_message:
@@ -251,7 +251,7 @@ async def arr(client: Client, message: Message):
         await client.edit(f"Reply Raid has been activated on {username}")
 
 
-@Client.on_message(filters.command('dreplyraid'))
+@Client.on_message(filters.command(['dreplyraid'], ".") & filters.me)
 async def drr(client: Client, message: Message):
     global que
     if message.reply_to_message:
