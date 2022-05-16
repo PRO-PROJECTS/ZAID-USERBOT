@@ -154,7 +154,7 @@ async def statspam(client: Client, message: Message):
     await message.delete()
     for i in range(quantity):
         await zaid.delete()
-        msg = await client.(message.chat.id, spam_text)
+        msg = await client.send_message(message.chat.id, spam_text)
         await asyncio.sleep(0.1)
     else:
         await message.reply(parse_mode=None)
