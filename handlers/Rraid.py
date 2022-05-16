@@ -10,7 +10,7 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message)
 
-from helpers.SQL.rraid import gmute, is_gmuted, ungmute
+from helpers.SQL.rraid import rmute as gmute, rs_gmuted as is_gmuted, rngmute as ungmute
 
 
 async def iter_chats(client: Client):
