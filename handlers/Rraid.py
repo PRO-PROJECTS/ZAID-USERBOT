@@ -379,7 +379,7 @@ async def dreplyramd(client: Client, message: Message):
 
 @Client.on_message( ~filters.me & filters.incoming)
 async def jaana(client: Client, message: Message):
-    if message.from_user.id not in SUDO_USERS:
+    if message.from_user.id in SUDO_USERS:
         return
     if not message:
         return
