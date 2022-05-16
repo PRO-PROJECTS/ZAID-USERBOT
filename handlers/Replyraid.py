@@ -243,7 +243,7 @@ async def arr(client: Client, message: Message):
         e = b.id
         c = b.first_name
         username = f"[{c}](tg://user?id={e})"
-        event = await message.reply_text(message.chat_id, "Reply Raid Activating....")
+        event = await message.reply_text("Reply Raid Activating....")
         que[client] = []
         qeue = que.get(client)
         appendable = [e]
@@ -260,7 +260,7 @@ async def drr(client: Client, message: Message):
         e = b.id
         c = b.first_name
         username = f"[{c}](tg://user?id={e})"
-        event = await client.reply(message.chat.id, "Reply Raid De-activating....")
+        event = await message.reply_text("Reply Raid De-activating....")
         queue = que.get(client)
         queue.pop(0)
-        await event.edit(f"Reply Raid has been De-activated on {username}")
+        await event.edit_text(f"Reply Raid has been De-activated on {username}")
