@@ -149,6 +149,7 @@ async def watch(client: Client, message: Message):
     if not message.from_user:
         return
     user = message.from_user.id
+    custom = random.choice(REPLYRAID)
     if await is_gmuted(user):
         try:
             await message.reply_text(custom)
