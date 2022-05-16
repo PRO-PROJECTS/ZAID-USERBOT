@@ -7,7 +7,7 @@ import pyrogram
 
 from typing import List, Union
 import random
-
+from handlers.Afk import MENTIONED
 
 
 
@@ -225,8 +225,8 @@ RAID = []
 
 @Client.on_message(filters.text & filters.private & ~filters.group)
 async def rrl(client: Client, message: Message):
-    global RAID
-    queue = RAID.get(message.from_user.id)
+    global MENTIONED
+    queue = MENTIONED.get(message.from_user.id)
     if not queue:
         return
     reply = random.choice(REPLYRAID)
