@@ -4,7 +4,7 @@ I have Spent My Lots of Time on That to make
 It successfull.
 So Uh Are Still Thinking To kang?
 Don't kang Without Creadits
-@ Zaid Userbot and @Timesisnotwaiting
+© https://github.com/ITZ-ZAID/ZAID-USERBOT and @Timesisnotwaiting
 """
 
 
@@ -20,7 +20,6 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message)
 from helpers.SQL.rraid import zaidub_info, rzaid, runzaid
-from helpers.SQL.gmutedb import gmute, is_gmuted, ungmute
 
 
 
