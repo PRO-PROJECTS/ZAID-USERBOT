@@ -295,12 +295,25 @@ async def watch(client: Client, message: Message):
     if not message.from_user:
         return
     user = message.from_user.id
-    zaid = random.choice(RAID)
+    if await is_gmuted(user):
+        try:
+            await message.delete()
+        except:
+            pass
     if await gban_info(user):
+        if message.chat.type != "supergroup":
+            pass
         try:
             me_ = await message.chat.get_member(int(client.me.id))
         except:
-            return
-        await message.reply_text(zaid)
-
-
+            pass
+        if not me_.can_restrict_members:
+            pass
+        try:
+            await client.kick_chat_member(message.chat.id, int(user))
+        except:
+            pass
+        await client.send_message(
+            message.chat.id,
+            f"**#GbanWatch** \n**Chat ID :** `{message.chat.id}` \n**User :** `{user}` \n**Reason :** `{await gban_info(user)}`",
+        )
