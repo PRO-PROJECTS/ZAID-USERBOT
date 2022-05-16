@@ -20,7 +20,6 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message)
 from helpers.SQL.rraid import zaidub_info, rzaid, runzaid
-from config import SUDO_USERS
 
 RAID = [
     "MADARCHOD TERI MAA KI CHUT ME GHUTKA KHAAKE THOOK DUNGA 🤣🤣",
@@ -306,7 +305,7 @@ def get_text(message: Message) -> [None, str]:
    
 
 
-@Client.on_message(filters.user(SUDO_USERS) & filters.command(["replyraid", "rraid"], ["."]))
+@Client.on_message(filters.me & filters.command(["replyraid", "rraid"], ["."]))
 async def replyramd(client: Client, message: Message):
     Zaid = await message.reply_text("`Processing..`")
     text_ = get_text(message)
@@ -341,7 +340,7 @@ async def replyramd(client: Client, message: Message):
     await Zaid.edit(gbanned)
     
 
-@Client.on_message(filters.user(SUDO_USERS) & filters.command(["dreplyraid", "drraid"], ["."]))
+@Client.on_message(filters.me & filters.command(["dreplyraid", "drraid"], ["."]))
 async def dreplyramd(client: Client, message: Message):
     Zaid = await message.reply_text("`Processing..`")
     text_ = get_text(message)
@@ -375,7 +374,7 @@ async def dreplyramd(client: Client, message: Message):
     
 
 
-@Client.on_message( ~filters.me & filters.incoming)
+@Client.on_message(filters.me & filters.incoming)
 async def jaana(client: Client, message: Message):
     if not message:
         return
