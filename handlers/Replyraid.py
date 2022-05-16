@@ -251,7 +251,7 @@ async def arr(client: Client, message: Message):
         await client.edit(f"Reply Raid has been activated on {username}")
 
 
-@exploiter.on_message(filters.command('dreplyraid'))
+@Client.on_message(filters.command('dreplyraid'))
 async def drr(client: Client, message: Message):
     global que
     if message.reply_to_message:
